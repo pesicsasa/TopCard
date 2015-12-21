@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="430.0" maxWidth="400.0"
+	prefHeight="430.0" prefWidth="400.0" style="-fx-background-color: #007A95;"
+	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="controller.DescriptionVoteController">
+	<children>
+		<Button fx:id="cancel_button" layoutX="14.0" layoutY="286.0"
+			onAction="#cancelButtonHandler" prefHeight="26.0" prefWidth="77.0"
+			style="-fx-background-color: LIGHTCORAL; -fx-text-fill: WHITE;" text="Cancel"
+			AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" />
+		<Label fx:id="label" layoutX="146.0" layoutY="14.0" minHeight="16"
+			minWidth="69" style="-fx-font: avenir;" text="Description Vote"
+			textFill="WHITE" />
+		<Label fx:id="invalid_label" layoutX="96.0" layoutY="169.0"
+			textFill="#ee0b0b" />
+		<TextArea fx:id="description_textfield" layoutX="12.0"
+			layoutY="37.0" prefHeight="98.0" prefWidth="377.0" />
+		<Button fx:id="vote_button" layoutX="100.0" layoutY="286.0"
+			onAction="#saveVote" prefHeight="26.0" prefWidth="283.0"
+			style="-fx-background-color: LIGHTGREEN; -fx-text-fill: WHITE;" text="Vote"
+			AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="112.0"
+			AnchorPane.rightAnchor="5.0" />
+		<Label layoutX="14.0" layoutY="142.0" text="precise" textFill="WHITE" />
+		<Label layoutX="15.0" layoutY="187.0" text="understandable"
+			textFill="WHITE" />
+		<Label layoutX="14.0" layoutY="231.0" text="correct" textFill="WHITE" />
+		<Separator layoutX="15.0" layoutY="179.0" prefHeight="1.0"
+			prefWidth="377.0" />
+		<Separator layoutX="15.0" layoutY="224.0" prefHeight="3.0"
+			prefWidth="377.0" />
+		<Slider fx:id="precise_slider" layoutX="133.0" layoutY="142.0"
+			majorTickUnit="1.0" max="10.0" minorTickCount="0" prefHeight="16.0"
+			prefWidth="245.0" showTickLabels="true" showTickMarks="true"
+			snapToTicks="true" value="10.0" />
+		<Slider fx:id="understandable_slider" layoutX="133.0" layoutY="187.0"
+			majorTickUnit="1.0" max="10.0" minorTickCount="0" prefHeight="16.0"
+			prefWidth="245.0" showTickLabels="true" showTickMarks="true"
+			snapToTicks="true" value="10.0" />
+		<ChoiceBox fx:id="correct_choicebox" layoutX="141.0"
+			layoutY="234.0" prefWidth="150.0">
+
+		</ChoiceBox>
+
+	</children>
+</AnchorPane>

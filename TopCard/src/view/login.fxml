@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" style="-fx-background-color: #007A95;" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+    <children>
+        <Button fx:id="loginButton" layoutX="23.0" layoutY="143.0" onAction="#loginButtonAction" prefHeight="26.0" prefWidth="268.0" style="-fx-background-color: #B8C519;" text="Login" textFill="WHITE" />
+        <Label fx:id="label" layoutX="110.0" layoutY="28.0" minHeight="16" minWidth="69" text="TopCard System" textFill="WHITE" textOverrun="CLIP" />
+      <TextField fx:id="username_box" layoutX="124.0" layoutY="69.0" onAction="#onEnter" prefHeight="26.0" prefWidth="165.0" style="-fx-background-color: #B2D7DF;" />
+      <Label fx:id="label1" layoutX="23.0" layoutY="74.0" minHeight="16" minWidth="69" text="Username" textFill="WHITE" />
+      <Label fx:id="invalid_label" layoutX="96.0" layoutY="169.0" textFill="#ee0b0b" />
+    </children>
+</AnchorPane>

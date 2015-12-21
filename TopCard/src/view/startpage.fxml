@@ -1,0 +1,631 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.*?>
+
+<AnchorPane maxHeight="635.0" maxWidth="900.0" minHeight="635.0" minWidth="900.0" style="-fx-background-color: #007A95;" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StartpageController">
+	<children>
+		<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: transparent;" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="35.0">
+			<tabs>
+				<Tab fx:id="tab_messages" style="-fx-background-color: #007A95;">
+					<content>
+						<StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #007A95;">
+							<children>
+								<ChoiceBox fx:id="choicebox_module" maxWidth="270.0" prefHeight="26.0" prefWidth="140.0" style="-fx-background-color: #4CA1B4;" StackPane.alignment="TOP_LEFT">
+									<items>
+										<FXCollections fx:factory="observableArrayList">
+										</FXCollections>
+									</items>
+									<StackPane.margin>
+										<Insets left="5.0" top="5.0" />
+									</StackPane.margin>
+								</ChoiceBox>
+								<ChoiceBox fx:id="choicebox_owner" maxWidth="270.0" prefHeight="26.0" prefWidth="140.0" style="-fx-background-color: #4CA1B4;" StackPane.alignment="TOP_LEFT">
+									<items>
+										<FXCollections fx:factory="observableArrayList">
+											<String fx:value="public" />
+											<String fx:value="private" />
+										</FXCollections>
+									</items>
+									<StackPane.margin>
+										<Insets left="5.0" top="35.0" />
+									</StackPane.margin>
+								</ChoiceBox>
+								<TextField maxWidth="200.0" minWidth="200.0" prefHeight="26.0" prefWidth="317.0" promptText="&quot;search&quot;" style="-fx-background-color: #4CA1B4;" StackPane.alignment="TOP_LEFT">
+									<StackPane.margin>
+										<Insets left="5.0" top="65.0" />
+									</StackPane.margin>
+								</TextField>
+								<Button mnemonicParsing="false" onAction="#searchButton" style="-fx-background-color: #B8C519; -fx-text-fill: WHITE;" text="Search" StackPane.alignment="TOP_LEFT">
+									<StackPane.margin>
+										<Insets left="210.0" top="65.0" />
+									</StackPane.margin>
+								</Button>
+								<ChoiceBox prefWidth="150.0" style="-fx-background-color: #4CA1B4;" StackPane.alignment="TOP_RIGHT">
+									<StackPane.margin>
+										<Insets right="5.0" top="5.0" />
+									</StackPane.margin>
+								</ChoiceBox>
+								<Button fx:id="vote_description_button" maxWidth="150.0" mnemonicParsing="false" onAction="#voteOnDescription" prefWidth="150.0" style="-fx-background-color: #B8C519; -fx-text-fill: WHITE;" text="Vote Description" StackPane.alignment="BOTTOM_RIGHT">
+									<StackPane.margin>
+										<Insets bottom="5.0" right="5.0" top="150.0" />
+									</StackPane.margin>
+								</Button>
+								<Button fx:id="vote_rationale_button" maxWidth="150.0" mnemonicParsing="false" onAction="#voteOnRationale" prefWidth="150.0" style="-fx-background-color: #B8C519; -fx-text-fill: WHITE;" text="Vote Rationale" StackPane.alignment="BOTTOM_RIGHT">
+									<StackPane.margin>
+										<Insets bottom="5.0" right="159.0" top="200.0" />
+									</StackPane.margin>
+								</Button>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#007a95" height="490.0" stroke="WHITE" strokeType="INSIDE" width="610.0" StackPane.alignment="TOP_RIGHT">
+                           <StackPane.margin>
+                              <Insets left="280.0" right="5.0" top="40.0" />
+                           </StackPane.margin>
+                        </Rectangle>
+								<TableView fx:id="requirement_table_view" maxWidth="270.0" prefHeight="200.0" prefWidth="200.0" StackPane.alignment="TOP_LEFT">
+									<columns>
+										<TableColumn fx:id="reqCardNameColumn_view" maxWidth="120.0" prefWidth="91.0" style="-: #007A95;">
+											<graphic>
+												<Label text="Req. Name" textFill="#007a95" />
+											</graphic>
+										</TableColumn>
+										<TableColumn fx:id="reqCardSourceColumn_view" maxWidth="147.0" prefWidth="77.0">
+											<graphic>
+												<Label text="Source" textFill="#007a95" />
+											</graphic>
+										</TableColumn>
+									</columns>
+									<effect>
+										<Lighting diffuseConstant="2.0">
+											<bumpInput>
+												<Shadow />
+											</bumpInput>
+											<light>
+												<Light.Distant />
+											</light>
+										</Lighting>
+									</effect>
+									<columnResizePolicy>
+										<TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+									</columnResizePolicy>
+									<StackPane.margin>
+										<Insets bottom="5.0" left="5.0" top="100.0" />
+									</StackPane.margin>
+								</TableView>
+                        <Label prefHeight="16.0" prefWidth="114.0" text="Name" textFill="WHITE" StackPane.alignment="TOP_RIGHT">
+                           <StackPane.margin>
+                              <Insets left="300.0" right="480.0" top="80.0" />
+                           </StackPane.margin>
+                        </Label>
+                        <Label prefHeight="16.0" prefWidth="116.0" text="Module" textFill="WHITE" StackPane.alignment="TOP_RIGHT">
+                           <StackPane.margin>
+                              <Insets left="300.0" right="480.0" top="110.0" />
+                           </StackPane.margin>
+                        </Label>
+                        <Label prefHeight="16.0" prefWidth="114.0" text="Description" textFill="WHITE" StackPane.alignment="TOP_RIGHT">
+                           <StackPane.margin>
+                              <Insets left="300.0" right="480.0" top="140.0" />
+                           </StackPane.margin>
+                        </Label>
+                        <Label prefHeight="16.0" prefWidth="115.0" text="Rationale" textFill="WHITE" StackPane.alignment="TOP_RIGHT">
+                           <StackPane.margin>
+                              <Insets left="300.0" right="480.0" top="250.0" />
+                           </StackPane.margin>
+                        </Label>
+                        <Label prefHeight="16.0" prefWidth="113.0" text="Source" textFill="WHITE" StackPane.alignment="TOP_RIGHT">
+                           <StackPane.margin>
+                              <Insets left="300.0" right="480.0" top="360.0" />
+                           </StackPane.margin>
+                        </Label>
+                        <Label prefHeight="16.0" prefWidth="113.0" text="User Story" textFill="WHITE" StackPane.alignment="TOP_RIGHT">
+                           <StackPane.margin>
+                              <Insets left="300.0" right="480.0" top="390.0" />
+                           </StackPane.margin>
+                        </Label>
+                        <Label prefHeight="16.0" prefWidth="113.0" text="Supporting" textFill="WHITE" StackPane.alignment="TOP_RIGHT">
+                           <StackPane.margin>
+                              <Insets left="300.0" right="480.0" top="420.0" />
+                           </StackPane.margin>
+                        </Label>
+                        <Label prefHeight="16.0" prefWidth="114.0" text="materials" textFill="WHITE" StackPane.alignment="TOP_RIGHT">
+                           <StackPane.margin>
+                              <Insets left="300.0" right="480.0" top="440.0" />
+                           </StackPane.margin>
+                        </Label>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: BOLD;" text="----------------------------------------------------------------------------" wrappingWidth="413.7294921875" StackPane.alignment="TOP_RIGHT">
+                           <StackPane.margin>
+                              <Insets left="320.0" right="40.0" top="80.0" />
+                           </StackPane.margin>
+                        </Text>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: BOLD;" text="----------------------------------------------------------------------------" wrappingWidth="412.7294921875" StackPane.alignment="TOP_RIGHT">
+                           <StackPane.margin>
+                              <Insets right="40.0" top="110.0" />
+                           </StackPane.margin>
+                        </Text>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: BOLD;" text="----------------------------------------------------------------------------" wrappingWidth="411.7294921875" StackPane.alignment="TOP_RIGHT">
+                           <StackPane.margin>
+                              <Insets right="40.0" top="140.0" />
+                           </StackPane.margin>
+                        </Text>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: BOLD;" text="----------------------------------------------------------------------------" wrappingWidth="411.7294921875" StackPane.alignment="TOP_RIGHT">
+                           <StackPane.margin>
+                              <Insets right="40.0" top="250.0" />
+                           </StackPane.margin>
+                        </Text>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: BOLD;" text="----------------------------------------------------------------------------" wrappingWidth="412.7294921875" StackPane.alignment="TOP_RIGHT">
+                           <StackPane.margin>
+                              <Insets right="40.0" top="360.0" />
+                           </StackPane.margin>
+                        </Text>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: BOLD;" text="----------------------------------------------------------------------------" wrappingWidth="415.7294921875" StackPane.alignment="TOP_RIGHT">
+                           <StackPane.margin>
+                              <Insets right="40.0" top="390.0" />
+                           </StackPane.margin>
+                        </Text>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: BOLD;" text="----------------------------------------------------------------------------" wrappingWidth="414.7294921875" StackPane.alignment="TOP_RIGHT">
+                           <StackPane.margin>
+                              <Insets right="40.0" top="420.0" />
+                           </StackPane.margin>
+                        </Text>
+                        <Label prefHeight="16.0" prefWidth="113.0" text="Priority" textFill="WHITE" StackPane.alignment="TOP_RIGHT">
+                           <StackPane.margin>
+                              <Insets left="300.0" right="480.0" top="480.0" />
+                           </StackPane.margin>
+                        </Label>
+                        <Circle fill="#007a95" radius="19.0" stroke="WHITE" strokeType="INSIDE" StackPane.alignment="TOP_RIGHT">
+                           <StackPane.margin>
+                              <Insets left="300.0" right="430.0" top="470.0" />
+                           </StackPane.margin>
+                        </Circle>
+                        <Label style="-fx-font-weight: BOLD;" text="no." textFill="WHITE" StackPane.alignment="TOP_RIGHT">
+                           <StackPane.margin>
+                              <Insets left="300.0" right="435.0" top="480.0" />
+                           </StackPane.margin>
+                        </Label>
+                        <Label prefHeight="16.0" prefWidth="100.0" text="Dependencies" textFill="WHITE" StackPane.alignment="TOP_RIGHT">
+                           <StackPane.margin>
+                              <Insets left="220.0" right="290.0" top="480.0" />
+                           </StackPane.margin>
+                        </Label>
+                        <ListView maxWidth="260.0" prefHeight="200.0" prefWidth="200.0" StackPane.alignment="TOP_RIGHT">
+                           <StackPane.margin>
+                              <Insets bottom="50.0" left="300.0" right="20.0" top="460.0" />
+                           </StackPane.margin>
+                        </ListView>
+							</children>
+						</StackPane>
+					</content>
+					<graphic>
+						<Label text="Card Voter" textFill="WHITE" />
+					</graphic>
+				</Tab>
+				<Tab style="-fx-background-color: #007A95;">
+					<content>
+						<StackPane alignment="TOP_CENTER" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #007A95;">
+							<children>
+								<ChoiceBox fx:id="requirement_module" minWidth="340.0" prefHeight="26.0" prefWidth="394.0" style="-fx-background-color: #4CA1B4;" StackPane.alignment="TOP_RIGHT">
+									<StackPane.margin>
+										<Insets left="500.0" right="5.0" top="75.0" />
+									</StackPane.margin>
+								</ChoiceBox>
+								<TextArea fx:id="requirement_description" maxHeight="90.0" prefHeight="60.0" prefWidth="395.0" style="-fx-background-color: WHITE;">
+									<StackPane.margin>
+										<Insets left="500.0" right="5.0" top="110.0" />
+									</StackPane.margin>
+								</TextArea>
+								<TextField fx:id="requirement_source" style="-fx-background-color: #4CA1B4;" StackPane.alignment="TOP_RIGHT">
+									<StackPane.margin>
+										<Insets left="500.0" right="5.0" top="310.0" />
+									</StackPane.margin>
+								</TextField>
+								<TextField fx:id="requirement_sup" prefHeight="26.0" prefWidth="370.0" style="-fx-background-color: #4CA1B4;" StackPane.alignment="TOP_RIGHT">
+									<StackPane.margin>
+										<Insets left="500.0" right="5.0" top="380.0" />
+									</StackPane.margin>
+								</TextField>
+								<TextArea fx:id="requirement_rationale" maxHeight="90.0" prefHeight="200.0" prefWidth="200.0">
+									<StackPane.margin>
+										<Insets left="500.0" right="5.0" top="210.0" />
+									</StackPane.margin>
+								</TextArea>
+								<Button fx:id="create_button" maxWidth="100.0" mnemonicParsing="false" onAction="#createRC" prefHeight="26.0" prefWidth="171.0" style="-fx-background-color: #B8C519;" text="Create" textFill="WHITE" StackPane.alignment="BOTTOM_RIGHT">
+									<StackPane.margin>
+										<Insets bottom="15.0" left="740.0" right="5.0" />
+									</StackPane.margin>
+								</Button>
+								<Button fx:id="freeze_button" maxWidth="100.0" minWidth="100.0" mnemonicParsing="false" onAction="#freezeUnfreezeRC" prefHeight="26.0" prefWidth="398.0" style="-fx-background-color: #4CA1B4;" text="Freeze" textFill="WHITE" StackPane.alignment="BOTTOM_RIGHT">
+									<StackPane.margin>
+										<Insets bottom="15.0" right="243.0" />
+									</StackPane.margin>
+								</Button>
+								<Label text="Name" textFill="WHITE" StackPane.alignment="TOP_LEFT">
+									<StackPane.margin>
+										<Insets left="360.0" top="40.0" />
+									</StackPane.margin>
+								</Label>
+								<Label text="Module" textFill="WHITE" StackPane.alignment="TOP_LEFT">
+									<StackPane.margin>
+										<Insets left="360.0" top="75.0" />
+									</StackPane.margin>
+								</Label>
+								<Label text="Description" textFill="WHITE" StackPane.alignment="TOP_LEFT">
+									<StackPane.margin>
+										<Insets left="360.0" top="110.0" />
+									</StackPane.margin>
+								</Label>
+								<Label text="Rationale" textFill="WHITE" StackPane.alignment="TOP_LEFT">
+									<StackPane.margin>
+										<Insets left="360.0" top="210.0" />
+									</StackPane.margin>
+								</Label>
+								<Label text="Source" textFill="WHITE" StackPane.alignment="TOP_LEFT">
+									<StackPane.margin>
+										<Insets left="360.0" top="310.0" />
+									</StackPane.margin>
+								</Label>
+								<Label text="User story*" textFill="WHITE" StackPane.alignment="TOP_LEFT">
+									<StackPane.margin>
+										<Insets left="360.0" top="345.0" />
+									</StackPane.margin>
+								</Label>
+								<Label prefHeight="21.0" prefWidth="75.0" text="Supporting" textFill="WHITE" StackPane.alignment="TOP_LEFT">
+									<StackPane.margin>
+										<Insets left="360.0" top="375.0" />
+									</StackPane.margin>
+								</Label>
+								<ChoiceBox fx:id="requirement_userStory" prefHeight="26.0" prefWidth="394.0" style="-fx-background-color: #4CA1B4;" StackPane.alignment="TOP_RIGHT">
+									<StackPane.margin>
+										<Insets left="500.0" right="5.0" top="345.0" />
+									</StackPane.margin>
+								</ChoiceBox>
+								<TableView fx:id="requirement_table" maxWidth="330.0" prefHeight="556.0" prefWidth="348.0" StackPane.alignment="TOP_LEFT">
+									<columns>
+										<TableColumn fx:id="reqCardNameColumn" maxWidth="160.0" prefWidth="124.0">
+											<graphic>
+												<Label text="Req. Name" textFill="#007a95" />
+											</graphic>
+										</TableColumn>
+										<TableColumn fx:id="reqCardSourceColumn" maxWidth="147.0" prefWidth="104.0">
+											<graphic>
+												<Label text="Source" textFill="#007a95" />
+											</graphic>
+										</TableColumn>
+										<TableColumn fx:id="reqCardSourceColumn" maxWidth="147.0" prefWidth="129.0">
+											<graphic>
+												<Label text="Status" textFill="#007a95" />
+											</graphic>
+										</TableColumn>
+									</columns>
+									<StackPane.margin>
+										<Insets left="5.0" right="550.0" top="5.0" />
+									</StackPane.margin>
+									<effect>
+										<Lighting diffuseConstant="2.0">
+											<bumpInput>
+												<Shadow />
+											</bumpInput>
+											<light>
+												<Light.Distant />
+											</light>
+										</Lighting>
+									</effect>
+									<columnResizePolicy>
+										<TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+									</columnResizePolicy>
+								</TableView>
+								<TextField fx:id="requirement_name" style="-fx-background-color: #4CA1B4;" StackPane.alignment="TOP_RIGHT">
+									<StackPane.margin>
+										<Insets left="500.0" right="5.0" top="40.0" />
+									</StackPane.margin>
+								</TextField>
+								<Button fx:id="putUpToVote_button" maxWidth="128.0" minWidth="112.0" mnemonicParsing="false" onAction="#putToVoteRC" prefHeight="26.0" prefWidth="128.0" style="-fx-background-color: #B8C519;" text="Put Up To Vote" textFill="WHITE" StackPane.alignment="BOTTOM_RIGHT">
+									<StackPane.margin>
+										<Insets bottom="15.0" right="110.0" />
+									</StackPane.margin>
+								</Button>
+								<Button fx:id="update_button" minWidth="100.0" mnemonicParsing="false" onAction="#updateRC" prefHeight="26.0" prefWidth="100.0" style="-fx-background-color: #4CA1B4;" text="Update" textFill="WHITE" StackPane.alignment="BOTTOM_RIGHT">
+									<StackPane.margin>
+										<Insets bottom="15.0" right="349.0" />
+									</StackPane.margin>
+								</Button>
+								<Label prefHeight="16.0" prefWidth="114.0" text="* - optional fields" textFill="#b8c519" StackPane.alignment="BOTTOM_RIGHT">
+									<StackPane.margin>
+										<Insets bottom="20.0" left="120.0" right="450.0" top="5.0" />
+									</StackPane.margin>
+								</Label>
+								<ChoiceBox fx:id="choicebox_versions" prefHeight="26.0" prefWidth="114.0" style="-fx-background-color: #4CA1B4;" StackPane.alignment="TOP_RIGHT">
+									<StackPane.margin>
+										<Insets left="500.0" right="5.0" top="8.0" />
+									</StackPane.margin>
+								</ChoiceBox>
+								<Label prefHeight="16.0" prefWidth="63.0" text="Version" textFill="WHITE" StackPane.alignment="TOP_RIGHT">
+									<StackPane.margin>
+										<Insets right="140.0" top="10.0" />
+									</StackPane.margin>
+								</Label>
+								<Label layoutX="370.0" layoutY="450.0" prefHeight="21.0" prefWidth="75.0" text="materials*" textFill="WHITE" StackPane.alignment="TOP_LEFT">
+									<StackPane.margin>
+										<Insets left="360.0" top="395.0" />
+									</StackPane.margin>
+								</Label>
+                        <Slider majorTickUnit="1.0" max="10.0" min="1.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" StackPane.alignment="TOP_RIGHT">
+                           <StackPane.margin>
+                              <Insets left="500.0" right="5.0" top="418.0" />
+                           </StackPane.margin>
+                        </Slider>
+                        <Label prefHeight="21.0" prefWidth="75.0" text="Priority*" textFill="WHITE" StackPane.alignment="TOP_LEFT">
+                           <StackPane.margin>
+                              <Insets left="360.0" top="418.0" />
+                           </StackPane.margin>
+                        </Label>
+                        <Label prefHeight="21.0" prefWidth="106.0" text="Dependency *" textFill="WHITE" StackPane.alignment="TOP_LEFT">
+                           <StackPane.margin>
+                              <Insets left="360.0" top="460.0" />
+                           </StackPane.margin>
+                        </Label>
+                        <MenuBar StackPane.alignment="TOP_RIGHT">
+                          <menus>
+                            <Menu mnemonicParsing="false" text="       Select Dependency" />
+                          </menus>
+                           <StackPane.margin>
+                              <Insets left="500.0" right="180.0" top="460.0" />
+                           </StackPane.margin>
+                        </MenuBar>
+							</children>
+						</StackPane>
+					</content>
+					<graphic>
+						<Label text="Card Creator" textFill="WHITE" />
+					</graphic>
+				</Tab>
+				<Tab style="-fx-background-color: #007A95;">
+					<graphic>
+						<Label text="Card Viewer" textFill="WHITE" />
+					</graphic>
+					<content>
+						<StackPane minHeight="250.0" minWidth="332.0" prefHeight="250.0" prefWidth="332.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+							<children>
+								<ChoiceBox fx:id="type_choicebox" prefHeight="26.0" prefWidth="205.0" style="-fx-background-color: B2D7DF;" StackPane.alignment="TOP_LEFT">
+									<StackPane.margin>
+										<Insets left="5.0" top="5.0" />
+									</StackPane.margin>
+								</ChoiceBox>
+								<ChoiceBox fx:id="choicebox_module_viewer" prefWidth="205.0" style="-fx-background-color: B2D7DF;" StackPane.alignment="TOP_LEFT">
+									<StackPane.margin>
+										<Insets left="5.0" top="37.0" />
+									</StackPane.margin>
+								</ChoiceBox>
+								<ChoiceBox fx:id="choicebox_owner_viewer" prefWidth="205.0" style="-fx-background-color: B2D7DF;" StackPane.alignment="TOP_LEFT">
+									<StackPane.margin>
+										<Insets left="5.0" top="69.0" />
+									</StackPane.margin>
+								</ChoiceBox>
+								<Label text="Description" textFill="WHITE" StackPane.alignment="TOP_LEFT">
+									<StackPane.margin>
+										<Insets left="68.0" top="110.0" />
+									</StackPane.margin>
+									<font>
+										<Font name="System Bold" size="13.0" />
+									</font>
+								</Label>
+								<CheckBox fx:id="checkbox_understandabl_desce" mnemonicParsing="false" text="Understandable" textFill="WHITE" StackPane.alignment="TOP_LEFT">
+									<StackPane.margin>
+										<Insets left="5.0" top="140.0" />
+									</StackPane.margin>
+								</CheckBox>
+								<CheckBox fx:id="checkbox_traceable_rat" mnemonicParsing="false" text="Traceable" textFill="WHITE" StackPane.alignment="TOP_LEFT">
+									<StackPane.margin>
+										<Insets left="5.0" top="340.0" />
+									</StackPane.margin>
+								</CheckBox>
+								<CheckBox fx:id="checkbox_precise_rat" mnemonicParsing="false" text="Precise" textFill="WHITE" StackPane.alignment="TOP_LEFT">
+									<StackPane.margin>
+										<Insets left="5.0" top="310.0" />
+									</StackPane.margin>
+								</CheckBox>
+								<CheckBox fx:id="checkbox_understandable_rat" mnemonicParsing="false" text="Understandable" textFill="WHITE" StackPane.alignment="TOP_LEFT">
+									<StackPane.margin>
+										<Insets left="5.0" top="280.0" />
+									</StackPane.margin>
+								</CheckBox>
+								<CheckBox fx:id="checkbox_correct_desc" mnemonicParsing="false" text="Correct" textFill="WHITE" StackPane.alignment="TOP_LEFT">
+									<StackPane.margin>
+										<Insets left="5.0" top="200.0" />
+									</StackPane.margin>
+								</CheckBox>
+								<CheckBox fx:id="checkbox_precise_desc" mnemonicParsing="false" text="Precise" textFill="WHITE" StackPane.alignment="TOP_LEFT">
+									<StackPane.margin>
+										<Insets left="5.0" top="170.0" />
+									</StackPane.margin>
+								</CheckBox>
+								<Label text="Rationale" textFill="WHITE" StackPane.alignment="TOP_LEFT">
+									<font>
+										<Font name="System Bold" size="13.0" />
+									</font>
+									<StackPane.margin>
+										<Insets left="74.0" top="250.0" />
+									</StackPane.margin>
+								</Label>
+								<ChoiceBox fx:id="choicebox_und_desc" prefHeight="26.0" prefWidth="70.0" style="-fx-background-color: B2D7DF;" StackPane.alignment="TOP_LEFT">
+									<StackPane.margin>
+										<Insets left="140.0" top="135.0" />
+									</StackPane.margin>
+								</ChoiceBox>
+								<ChoiceBox fx:id="choicebox_prec_desc" prefHeight="26.0" prefWidth="70.0" style="-fx-background-color: B2D7DF;" StackPane.alignment="TOP_LEFT">
+									<StackPane.margin>
+										<Insets left="140.0" top="165.0" />
+									</StackPane.margin>
+								</ChoiceBox>
+								<ChoiceBox fx:id="choicebox_correct_desc" prefHeight="26.0" prefWidth="70.0" style="-fx-background-color: B2D7DF;" StackPane.alignment="TOP_LEFT">
+									<StackPane.margin>
+										<Insets left="140.0" top="195.0" />
+									</StackPane.margin>
+								</ChoiceBox>
+								<ChoiceBox fx:id="choicebox_und_rat" prefHeight="26.0" prefWidth="70.0" style="-fx-background-color: B2D7DF;" StackPane.alignment="TOP_LEFT">
+									<StackPane.margin>
+										<Insets left="140.0" top="275.0" />
+									</StackPane.margin>
+								</ChoiceBox>
+								<ChoiceBox fx:id="choicebox_prec_rat" prefHeight="26.0" prefWidth="70.0" style="-fx-background-color: B2D7DF;" StackPane.alignment="TOP_LEFT">
+									<StackPane.margin>
+										<Insets left="140.0" top="305.0" />
+									</StackPane.margin>
+								</ChoiceBox>
+								<ChoiceBox fx:id="choicebox_trac_rat" prefHeight="26.0" prefWidth="70.0" style="-fx-background-color: B2D7DF;" StackPane.alignment="TOP_LEFT">
+									<StackPane.margin>
+										<Insets left="140.0" top="335.0" />
+									</StackPane.margin>
+								</ChoiceBox>
+								<Button mnemonicParsing="false" prefHeight="26.0" prefWidth="205.0" style="-fx-background-color: B2D7DF;" text="Filter" textFill="#007a95" StackPane.alignment="BOTTOM_LEFT">
+									<StackPane.margin>
+										<Insets bottom="5.0" left="5.0" right="300.0" top="400.0" />
+									</StackPane.margin>
+								</Button>
+								<TableView fx:id="table_viewer" prefHeight="200.0" prefWidth="200.0">
+									<columns>
+										<TableColumn fx:id="table_viewer_name" maxWidth="160.0" prefWidth="124.0">
+											<graphic>
+												<Label text="Req. Name" textFill="#007a95" />
+											</graphic>
+										</TableColumn>
+										<TableColumn fx:id="table_viewer_source" maxWidth="147.0" prefWidth="104.0">
+											<graphic>
+												<Label text="Source" textFill="#007a95" />
+											</graphic>
+										</TableColumn>
+										<TableColumn fx:id="table_viewer_current_version" maxWidth="147.0" prefWidth="104.0">
+											<graphic>
+												<Label text="Version" textFill="#007a95" />
+											</graphic>
+										</TableColumn>
+										<TableColumn fx:id="table_viewer_description" maxWidth="147.0" prefWidth="104.0">
+											<graphic>
+												<Label text="Description" textFill="#007a95" />
+											</graphic>
+										</TableColumn>
+										<TableColumn fx:id="table_viewer_rationale" maxWidth="147.0" prefWidth="104.0">
+											<graphic>
+												<Label text="Rationale" textFill="#007a95" />
+											</graphic>
+										</TableColumn>
+
+									</columns>
+									<StackPane.margin>
+										<Insets bottom="35.0" left="215.0" right="5.0" top="5.0" />
+									</StackPane.margin>
+								</TableView>
+								<Button fx:id="button_showIndividualStat" minHeight="26.0" minWidth="128.0" mnemonicParsing="false" onAction="#showIndividualStats" prefHeight="26.0" prefWidth="128.0" style="-fx-background-color: #B8C519;" text="Show Individual" textFill="WHITE" StackPane.alignment="BOTTOM_RIGHT">
+									<StackPane.margin>
+										<Insets bottom="5.0" left="200.0" right="137.0" />
+									</StackPane.margin>
+								</Button>
+								<Button minHeight="26.0" minWidth="128.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="128.0" style="-fx-background-color: #B8C519;" text="Compare Cards" textFill="WHITE" StackPane.alignment="BOTTOM_RIGHT">
+									<StackPane.margin>
+										<Insets bottom="5.0" left="260.0" right="5.0" />
+									</StackPane.margin>
+								</Button>
+                        <Slider max="10.0" maxWidth="200.0" min="-10.0" showTickLabels="true" showTickMarks="true" StackPane.alignment="TOP_LEFT">
+                           <StackPane.margin>
+                              <Insets left="5.0" top="450.0" />
+                           </StackPane.margin>
+                        </Slider>
+							</children>
+						</StackPane>
+					</content>
+
+				</Tab>
+            <Tab style="-fx-background-color: #007A95;">
+               <graphic>
+                  <Label text="Teams" textFill="WHITE" />
+               </graphic>
+               <content>
+                  <StackPane minHeight="250.0" minWidth="332.0" prefHeight="250.0" prefWidth="250.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <TableView fx:id="table_viewer1" maxWidth="250.0" prefHeight="250.0" prefWidth="256.0" StackPane.alignment="TOP_LEFT">
+                           <columns>
+                              <TableColumn fx:id="table_viewer_name1" maxWidth="397.0" prefWidth="249.0">
+                                 <graphic>
+                                    <Label text="All Teams" textFill="#007a95" />
+                                 </graphic>
+                              </TableColumn>
+                           </columns>
+                           <StackPane.margin>
+                              <Insets bottom="36.0" left="5.0" right="5.0" top="5.0" />
+                           </StackPane.margin>
+                        </TableView>
+                        <Button maxWidth="250.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="251.0" style="-fx-background-color: #B8C519;" text="Become Member" textFill="WHITE" StackPane.alignment="BOTTOM_LEFT">
+                           <StackPane.margin>
+                              <Insets bottom="5.0" left="5.0" />
+                           </StackPane.margin>
+                        </Button>
+                        <TableView fx:id="table_viewer11" maxWidth="250.0" prefHeight="250.0" prefWidth="256.0" StackPane.alignment="TOP_LEFT">
+                           <columns>
+                              <TableColumn fx:id="table_viewer_name11" maxWidth="397.0" prefWidth="249.0">
+                                 <graphic>
+                                    <Label text="Your Teams" textFill="#007a95" />
+                                 </graphic>
+                              </TableColumn>
+                           </columns>
+                           <StackPane.margin>
+                              <Insets bottom="36.0" left="260.0" top="5.0" />
+                           </StackPane.margin>
+                        </TableView>
+                        <Button maxWidth="250.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="251.0" style="-fx-background-color: #B8C519;" text="Leave Group" textFill="WHITE" StackPane.alignment="BOTTOM_LEFT">
+                           <StackPane.margin>
+                              <Insets bottom="5.0" left="260.0" />
+                           </StackPane.margin>
+                        </Button>
+                        <Separator orientation="VERTICAL" prefHeight="200.0" StackPane.alignment="TOP_LEFT">
+                           <StackPane.margin>
+                              <Insets left="520.0" />
+                           </StackPane.margin>
+                        </Separator>
+                        <Label text="Use a unique name for your team, so that other" textFill="WHITE" StackPane.alignment="TOP_RIGHT">
+                           <StackPane.margin>
+                              <Insets right="28.0" top="70.0" />
+                           </StackPane.margin>
+                        </Label>
+                        <Label text="users can identify your team by the name." textFill="WHITE" StackPane.alignment="TOP_RIGHT">
+                           <StackPane.margin>
+                              <Insets right="45.0" top="95.0" />
+                           </StackPane.margin>
+                        </Label>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#007a95" height="43.0" stroke="WHITE" strokeType="INSIDE" width="146.0" StackPane.alignment="TOP_RIGHT">
+                           <StackPane.margin>
+                              <Insets right="123.0" top="10.0" />
+                           </StackPane.margin>
+                        </Rectangle>
+                        <Label text="New Team" textFill="WHITE" StackPane.alignment="TOP_RIGHT">
+                           <StackPane.margin>
+                              <Insets right="163.0" top="23.0" />
+                           </StackPane.margin>
+                        </Label>
+                        <TextField maxWidth="260.0" prefHeight="26.0" prefWidth="599.0" StackPane.alignment="TOP_RIGHT">
+                           <StackPane.margin>
+                              <Insets right="60.0" top="140.0" />
+                           </StackPane.margin>
+                        </TextField>
+                        <Button maxWidth="260.0" mnemonicParsing="false" style="-fx-background-color: #B8C519;" text="Create " textFill="WHITE" StackPane.alignment="TOP_RIGHT">
+                           <StackPane.margin>
+                              <Insets right="60.0" top="170.0" />
+                           </StackPane.margin>
+                        </Button>
+                     </children>
+                  </StackPane>
+               </content>
+            </Tab>
+			</tabs>
+		</TabPane>
+		<Button fx:id="logout_button" layoutX="797.0" layoutY="14.0" mnemonicParsing="false" onAction="#buttonClickHandlerLogout" style="-fx-background-color: SALMON;" text="Logout" textFill="WHITE" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+	</children>
+</AnchorPane>
